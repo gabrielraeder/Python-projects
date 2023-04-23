@@ -15,3 +15,10 @@
   <a href=https://github.com/gabrielraeder/Python-projects/tree/main/ecommerce-fastAPI-crawler>🔗 How to run the application</a>
 </details>
 <hr>
+<details>
+<summary> Trybe-python-projects</summary>
+<h3>About:</h3>
+  <p>All python related projects developed while studying at Trybe.</p>
+  <a href=https://github.com/gabrielraeder/Python-projects/tree/main/Trybe-python-projects>🔗 Trybe Projects directory</a>
+</details>
+<hr>
