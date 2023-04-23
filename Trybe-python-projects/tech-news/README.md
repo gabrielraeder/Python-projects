@@ -3,7 +3,7 @@
 ## Build with:
  - [Python](https://www.python.org/)
  - [MongoDB](https://www.mongodb.com/)
- - [BeautifulSoup](https://beautiful-soup-4.readthedocs.io/en/latest/#)https://pypi.org/project/requests/
+ - [BeautifulSoup](https://beautiful-soup-4.readthedocs.io/en/latest/#)
  - [Requests](https://pypi.org/project/requests/)
 
 ------
