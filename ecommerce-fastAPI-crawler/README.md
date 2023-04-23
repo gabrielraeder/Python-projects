@@ -1,4 +1,4 @@
-# fastAPI-scraper-project
+# ecommerce-fasAPI-crawler
 
 ## Build with:
  - [Python](https://www.python.org/)
@@ -11,11 +11,11 @@
 
 #### - Clone Repository
 ```sh
-git git@github.com:gabrielraeder/Python-projects.git
+git clone git@github.com:gabrielraeder/Python-projects.git
 ```
 #### - Access directory
 ```sh
-cd Python-projects/trybeNews-fastAPI-scraper
+cd Python-projects/ecommerce-fastAPI-crawler
 ```
 
 ## Run application with:
