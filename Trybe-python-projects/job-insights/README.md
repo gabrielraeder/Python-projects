@@ -2,6 +2,7 @@
 
 ## Build with:
  - [Python](https://www.python.org/)
+ - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 
 ------
 
@@ -25,20 +26,17 @@ python3 -m venv .venv && source .venv/bin/activate
 python3 -m pip install -r dev-requirements.txt
 ```
 
-<!-- ## Start
+## Start
 ```sh
-inventory_report arg1 arg2
+flask run
 ```
-##### or
+> Access project at [http://localhost:5000](http://localhost:5000)
+- Obs: Flask part of the project was developed by Trybe.
+
+## Tests
 ```sh
-python3 -m inventory_report.main argumento1 argumento2
+python3 -m pytest
 ```
-> arg1 must be a path to a file to be imported, this file may be `csv`, `json` or `xml`.
-
-> arg2 must be either of the following strings: `simples` or `completo`, each generating their respective report.
-
-<br> -->
-
 
 ------
 
