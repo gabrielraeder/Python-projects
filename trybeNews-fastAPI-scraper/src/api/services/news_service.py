@@ -1,4 +1,5 @@
 from datetime import datetime
+from fastapi import HTTPException
 from api.models.news_model import NewsModel
 from api.utils.scraper import NewsScraper
 
@@ -40,6 +41,13 @@ class NewsService:
         return self.create_news_db(all_links, amount)
 
     @staticmethod
+    def check_for_not_found(result):
+        if len(result) == 0:
+            raise HTTPException(
+                status_code=404, detail="No information found at database"
+            )
+
+    @staticmethod
     def transform_dict_list_into_tuples(lista):
         return [(item["title"], item["url"]) for item in lista]
 
@@ -47,6 +55,7 @@ class NewsService:
         db_return = self.model.search_news_model(
             {"title": {"$regex": title, "$options": "i"}}
         )
+        NewsService.check_for_not_found(db_return)
         return NewsService.transform_dict_list_into_tuples(db_return)
 
     def search_by_date(self, date):
@@ -57,19 +66,23 @@ class NewsService:
             db_return = self.model.search_news_model(
                 {"timestamp": format_date}
             )
+
         except ValueError:
-            raise ValueError("Data inválida")
+            raise HTTPException(status_code=422, detail="Data inválida")
         else:
+            NewsService.check_for_not_found(db_return)
             return NewsService.transform_dict_list_into_tuples(db_return)
 
     def search_by_category(self, category: str):
         db_return = self.model.search_news_model(
             {"category": {"$regex": f"^{category}$", "$options": "i"}}
         )
+        NewsService.check_for_not_found(db_return)
         return NewsService.transform_dict_list_into_tuples(db_return)
 
     def top_5_categories(self):
         db_return = self.model.search_news_model({})
+        NewsService.check_for_not_found(db_return)
         categories = {}
         for item in db_return:
             if item["category"] not in categories:

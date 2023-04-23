@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Body
 from api.controllers.news_controller import NewsController
+from api.middlewares import Middleware
 
 app = FastAPI()
 
@@ -8,6 +9,7 @@ news_controller = NewsController()
 
 @app.post("/scrape-news", status_code=201)
 async def scrape(amount: int = Body(embed=True, default=None)):
+    Middleware.amount(amount)
     return news_controller.scrape_news(amount)
 
 
